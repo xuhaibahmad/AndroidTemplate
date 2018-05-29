@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4364af</color>
+    <color name="colorPrimaryDark">#4364af</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="light_gray">#dbdbdb</color>
+    <color name="gray">#7e7e7e</color>
+    <color name="semi_gray">#979797</color>
+    <color name="dark_gray">#696969</color>
+    <color name="bg_color">#f7f7f7</color>
+    <color name="black">#232323</color>
+    <color name="white">#ffffff</color>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent_white">#88ffffff</color>
+    <color name="translucent_black">#33000000</color>
+    <color name="fb">#3b5998</color>
+    <color name="google">#d34836</color>
+
+    <color name="news_item_bg">#33000000</color>
+    <color name="category_item_bg">#88000000</color>
+    <color name="file_icon_bg">#365899</color>
+    <color name="news_subtitle_text_color">#fbbd2c</color>
+
+    <color name="underline_1">#e5d252</color>
+    <color name="underline_2">#e56183</color>
+    <color name="underline_3">#34c255</color>
+    <color name="underline_4">#1d71d9</color>
+    <color name="underline_5">#ec7a47</color>
+
+    <color name="vertical_strip_purple">#8139c2</color>
+    <color name="vertical_strip_green">#ff95c665</color>
+    <color name="vertical_strip_orange">#ffed765d</color>
+    <color name="vertical_strip_blue">#ff0191c3</color>
+
+
+    <color name="color_primary">#4364af</color>
+    <color name="color_input_background">#b4b4b4</color>
+    <color name="color_text_secondary">#1d71d9</color>
+    <color name="color_text_primary">#373a41</color>
+    <color name="color_primary_light">#a5cbf9</color>
+    <color name="color_window_background">#e9e9e9</color>
+    <color name="color_card_background">#ffffff</color>
+
+    <color name="drawer_background">#50ffffff</color>
+
+    <color name="color_text_label">#fff</color>
+
+
+    <!--Design colors-->
+    <color name="red">#f63334</color>
+    <color name="orange">#F06423</color>
+    <color name="orange_dark">#D85A1B</color>
+    <color name="cyan_light">#c9ebee</color>
+    <color name="cyan">#b5e3e7</color>
+    <color name="cyan_dark">#70BDC6</color>
+    <color name="navy_blue">#214258</color>
+    <color name="navy_blue_dark">#1C3A4E</color>
+    <color name="light_green">#78DC96</color>
+    <color name="light_blue">#55C8F0</color>
+    <color name="blue_black_dark">#13171d</color>
+    <color name="blue_black_light">#516179</color>
+    <color name="blue_grey_light">#A5B4C8</color>
+    <color name="orange_light">#FFA500</color>
+    <color name="yellow">#fff44f</color>
+</resources>

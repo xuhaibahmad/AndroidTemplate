@@ -1,0 +1,55 @@
+buildscript {
+
+    ext.timberVersion = '4.5.1'
+    ext.kotlin_version = '1.2.31'
+    ext.anko_version = '0.10.1'
+    ext.asl_version = '27.1.1'
+    ext.espresso_version = '3.0.1'
+    ext.atsl_version = '1.0.1'
+    ext.constlayout_version = '1.1.0'
+    ext.leak_canary_version = '1.5.1'
+    ext.firebase_version = '15.0.0'
+    ext.firebase_ui_version = '3.3.1'
+    ext.dbflow_version = '4.2.4'
+    ext.daggerVersion = "2.15"
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath 'com.google.gms:google-services:3.1.0'
+        classpath 'io.fabric.tools:gradle:1.25.1'
+    }
+}
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC6-4"
+}
+
+detekt {
+    version = "1.0.0.RC6-4"
+    profile("main") {
+        input = "$projectDir/app/src/main/java"
+        config = "$projectDir/tools/detekt-config.yml"
+        filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+        output = "$project.projectDir/reports"
+        // Directory where output reports are stored (if present).
+        parallel = true
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

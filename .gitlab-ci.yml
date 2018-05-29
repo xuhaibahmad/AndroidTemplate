@@ -1,0 +1,64 @@
+image: smarp/gitlab-ci-android
+
+stages:
+- build
+- test
+- quality_assurance
+- deploy
+
+before_script:
+- export GRADLE_USER_HOME=$(pwd)/.gradle
+- chmod +x ./gradlew
+
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+  - .gradle/
+
+build:
+  stage: build
+  script:
+  - ./gradlew clean assembleDebug
+  artifacts:
+    paths:
+    - app/build/outputs/apk/debug/app-debug.apk
+
+unitTests:
+  stage: test
+  script:
+    - ./gradlew testDebug --stacktrace --info
+  artifacts:
+      name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+      when: always
+      expire_in: 4 days
+      paths:
+        - app/build/reports/tests/
+
+#functionalTests:
+#  stage: test
+#  script:
+#    - /utils/start-test-emulator.sh
+#    - ./gradlew connectedDebugAndroidTest --stacktrace --info
+#  artifacts:
+#    name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+#    when: always
+#    expire_in: 4 days
+#    paths:
+#      - app/build/reports/androidTests/
+
+static_analysis:
+  stage: quality_assurance
+  script:
+    - ./gradlew detektCheck
+  artifacts:
+    name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+    when: on_failure
+    expire_in: 4 days
+    paths:
+      - reports/
+
+# deploy_internal:
+#   stage: deploy
+#   script:
+#     - bundle exec fastlane android deploy_lane
+#   when: manual
