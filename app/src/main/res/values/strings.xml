@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Wisdom Hours</string>
+    <string name="app_name">Android Template</string>
     <string name="app_market_link" />
     <string name="app_google_play_store_link" />
-    <string name="create_account">Create Account</string>
+
+    <string name="error_no_network">Network Not Found!</string>
+    <string name="err_msg_no_network">Please Connect To An Internet Connection And Try Again</string>
 </resources>

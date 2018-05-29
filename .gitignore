@@ -48,7 +48,6 @@ captures/
 # Google Services (e.g. APIs or Firebase)
 /.idea/
 /keystore.properties
-/cricketer.trace
 *.html
 /projectFilesBackup/.idea/workspace.xml
 /adcolony-sdk-3.1.2/adcolony-sdk-3.1.2.aar

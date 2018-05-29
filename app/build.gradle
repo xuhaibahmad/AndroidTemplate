@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: "$project.rootDir/tools/script-git-version.gradle"
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 // Get the date of build
 def getDateOfBuild = { -> // ISO 8601 time format
@@ -26,26 +26,28 @@ task copyTestClasses(type: Copy) {
 }
 
 android {
+    signingConfigs {
+        release
+    }
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         versionCode 1
         versionName "0.0.1"
-        applicationId "com.zuhaibahmad.cricketer"
+        applicationId "com.zuhaibahmad.template"
         minSdkVersion 21
         targetSdkVersion 27
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
-        buildConfigField "String", "REPORTING_EMAIL", "\"incoming+zuhaib/cricketer@incoming.gitlab.com\""
-        signingConfig signingConfigs.signConfig
+        signingConfig signingConfigs.release
     }
     buildTypes {
         release {
             minifyEnabled true
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard.pro"
-            signingConfig signingConfigs.signConfig
+            signingConfig signingConfigs.release
             // Disables PNG crunching for the release build type.
             crunchPngs false
             manifestPlaceholders = [analytics_deactivated: "false", crashlytics_activated: "true"]
@@ -71,7 +73,7 @@ android {
             minifyEnabled false
             manifestPlaceholders = [analytics_deactivated: "true", crashlytics_activated: "false"]
             ext.alwaysUpdateBuildId = false
-            signingConfig signingConfigs.signConfig
+            signingConfig signingConfigs.release
         }
     }
     dexOptions {
@@ -203,6 +205,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
+    // Miscellaneous
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
+
     // Rx
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.0.2'
@@ -279,5 +284,5 @@ fileTree(dir: 'libs-aar', include: '*.aar').each { File file ->
 apply plugin: 'kotlin-allopen'
 
 allOpen {
-    annotation 'com.zuhaibahmad.cricketer.utils.OpenClass'
+    annotation 'com.zuhaibahmad.template.utils.OpenClass'
 }

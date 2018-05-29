@@ -22,7 +22,6 @@
     <style name="Label" parent="@android:style/Widget.TextView">
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/poppins_light</item>
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Small</item>
         <item name="android:textColor">@color/color_text_label</item>
     </style>
